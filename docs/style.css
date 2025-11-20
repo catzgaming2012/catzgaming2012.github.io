@@ -1,6 +1,12 @@
+@font-face {
+  font-family: 'ShagExpert-Lounge'; /* Give your font a name */
+  src: url('../fonts/ShagExpert-Lounge.otf') format('otf'); /* Path to your font file */
+  font-weight: normal; /* Optional: Define font weight if multiple weights are used */
+  font-style: normal; /* Optional: Define font style if italic or other styles are used */
+}
 h1 {
   font-family: "Comic Sans MS", sans-serif;
 }
 p {
-  font-family: "Comic Sans MS", sans-serif;
+  font-family: "ShagExpert-Lounge", "Comic Sans MS", sans-serif;
 }
