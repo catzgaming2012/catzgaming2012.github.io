@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const listItem = document.createElement('li');
                     const link = document.createElement('a');
                     link.textContent = item.name;
-                    link.href = item.html_url; // Link to the file on GitHub
+                    link.href = document.URL + item.name; // Link to the file on GitHub
                     listItem.appendChild(link);
                     fileListElement.appendChild(listItem);
                 });
