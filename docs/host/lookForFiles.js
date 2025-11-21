@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Construct the correct URL for the file/folder
                     // If it's a file, use the HTML URL for direct access
                     if (item.type === 'file') {
-                        link.href = item.html_url; 
+                        link.href = window.location.href + String(item.name); 
                         listItem.classList.add('file');
                     } else if (item.type === 'dir') {
                         // For directories, it's often best to link to the GitHub folder page
@@ -55,10 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     listItem.appendChild(link);
                     fileListElement.appendChild(listItem);
                     
-                    // *** RECURSIVE STEP ***
-                    // If the item is a directory, call this function again with its path
                     if (item.type === 'dir') {
-                        // Recursively call the function for the subfolder
                         await fetchFilesRecursively(item.path);
                     }
                 }
