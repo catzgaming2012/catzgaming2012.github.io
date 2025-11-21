@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const owner = 'catzgaming2012'; 
     const repo = 'catzgaming2012.github.io'; 
-    const initialPath = 'docs/host'; 
+    const initialPath = 'docs/'; 
     const baseUrl = `https://${owner}.github.io/`;
     const fileListElement = document.getElementById('file-list');
 
