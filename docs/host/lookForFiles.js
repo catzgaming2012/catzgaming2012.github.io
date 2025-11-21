@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Construct the correct URL for the file/folder
                     // If it's a file, use the HTML URL for direct access
                     if (item.type === 'file') {
-                        link.href = window.location.href + String(item.name); 
+                        link.href = 'https://catzgaming2012.github.io/host/' + String(item.name); 
                         listItem.classList.add('file');
                     } else if (item.type === 'dir') {
                         // For directories, it's often best to link to the GitHub folder page
