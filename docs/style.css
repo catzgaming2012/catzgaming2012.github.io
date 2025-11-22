@@ -13,6 +13,6 @@ p {
 body{
   background-image: url('host/images/ThatOneBFDIASkyBackground.webp');
   background-repeat: repeat-y;
-  background-size: contain;
+  background-size: cover;
   background-attachment: scroll;
 }
