@@ -10,6 +10,11 @@ p {
   font-family: "Comic Sans MS", sans-serif;
   color: white;
 }
+ul {
+  list-style-type: square;
+  font-family: "Comic Sans MS", sans-serif;
+  color: white;
+}
 body{
   background-image: url('host/images/ThatOneBFDIASkyBackground.webp');
   background-repeat: repeat-y;
