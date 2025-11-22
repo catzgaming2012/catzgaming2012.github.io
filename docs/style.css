@@ -1,6 +1,12 @@
 h1 {
   font-family: "Comic Sans MS", sans-serif;
 }
+h2 {
+  font-family: "Comic Sans MS", sans-serif;
+}
 p {
   font-family: "Comic Sans MS", sans-serif;
+}
+body{
+  background-color: #ff5353;
 }
