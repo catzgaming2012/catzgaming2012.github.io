@@ -1,12 +1,18 @@
 h1 {
   font-family: "Comic Sans MS", sans-serif;
+  color: white;
 }
 h2 {
   font-family: "Comic Sans MS", sans-serif;
+  color: white;
 }
 p {
   font-family: "Comic Sans MS", sans-serif;
+  color: white;
 }
 body{
-  background-color: #ff5353;
+  background-image: url('host/images/ThatOneBFDIASkyBackground.webp');
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-attachment: scroll;
 }
