@@ -17,7 +17,7 @@ ul {
 }
 body{
   background-image: url('host/images/ThatOneBFDIASkyBackground.webp');
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   background-size: cover;
-  background-attachment: scroll;
+  background-attachment: fixed;
 }
