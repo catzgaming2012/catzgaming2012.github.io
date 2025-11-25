@@ -8,6 +8,8 @@
 /*
   const menuIconURI = ""
 */
+  const { vm, Cast } = Scratch;
+  const runtime = vm.runtime;
 
   const { COMMAND, REPORTER, BOOLEAN, LOOP, LABEL, BUTTON, CONDITIONAL} = Scratch.BlockType
   const { NUMBER, STRING } = Scratch.ArgumentType
