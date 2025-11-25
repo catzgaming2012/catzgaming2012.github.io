@@ -9,15 +9,8 @@
   const menuIconURI = ""
 */
 
-  const COMMAND = Scratch.BlockType.COMMAND
-  const REPORTER = Scratch.BlockType.REPORTER
-  const BOOLEAN = Scratch.BlockType.BOOLEAN
-
-  const NUMBER = Scratch.ArgumentType.NUMBER
-  const STRING = Scratch.ArgumentType.STRING
-
-  const LABEL = Scratch.BlockType.LABEL
-  const BUTTON = Scratch.BlockType.BUTTON
+  const { COMMAND, REPORTER, BOOLEAN, LOOP, LABEL, BUTTON, CONDITIONAL} = Scratch.BlockType
+  const { NUMBER, STRING } = Scratch.ArgumentType
 
   class BaseExt {
     getInfo() {
@@ -59,6 +52,29 @@
         ]
       };
     }
+
+    // Loop Helpers
+    branchOnCondition(util, condition, branch = 1) {
+      if (condition) {
+          util.startBranch(branch, true);
+      }
+    }
+    initializeLoopCounter(num, util) {
+      if (typeof util.stackFrame.loopCounter === "undefined") {
+        util.stackFrame.loopCounter = Math.round(Cast.toNumber(num));
+        loopCount = undefined;
+      }
+    }
+    repeat(num, util, branch = 1) {
+      this.initializeLoopCounter(num, util)
+
+      util.stackFrame.loopCounter--;
+      loopCount = util.stackFrame.loopCounter;
+
+      this.branchOnCondition(util, (util.stackFrame.loopCounter >= 0), branch);
+    }
+
+    // Opcodes
     button() {
       alert('Alert')
     }
