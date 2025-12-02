@@ -8,6 +8,6 @@
     "1css": "cp docs/style.css dist/style.css",
     "2html": "cp docs/host/index.html dist/host/index.html",
     "2js": "cp docs/host/lookForFiles.js dist/host/lookForFiles.js",
-    "build": "npm run clean && mkdir -p dist && npm run 1html && npm run 1css && npm run 2html && npm run 2js"
+    "build": "npm run clean && mkdir -p dist/host && npm run 1html && npm run 1css && npm run 2html && npm run 2js"
   }
 }
