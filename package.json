@@ -6,8 +6,8 @@
     "shx": "^0.4.0"
   },
   "scripts": {
-    "clean": "shx rm -rf dist",
-    "copy-all": "shx cp -r src/* dist/",
+    "clean": "shx rm -rf docs/",
+    "copy-all": "shx cp -r * docs/",
     "build": "npm run clean && npm run copy-all"
   }
 }
