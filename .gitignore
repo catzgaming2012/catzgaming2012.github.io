@@ -1,4 +1,6 @@
 node_modules
 
+dist
+
 # This file doesn't exist currently, but I am keeping it just in case
 .env

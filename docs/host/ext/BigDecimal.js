@@ -1,4 +1,4 @@
-require('bigdecimal.js')
+const BigDec = require('bigdecimal.js')
 
 (function(Scratch) {
   'use strict';
