@@ -7,7 +7,7 @@
   },
   "scripts": {
     "clean": "shx rm -rf docs/",
-    "copy-all": "shx cp -r * docs/",
+    "copy-all": "shx cp -r src/* docs/",
     "build": "npm run clean && npm run copy-all"
   }
 }
