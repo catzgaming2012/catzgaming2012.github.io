@@ -1,4 +1,4 @@
-class Complex {
+export default class Complex {
     constructor(real, imag) {
         this.real = real;
         this.imag = imag;
@@ -65,8 +65,9 @@ class Complex {
 /**
 * Parses a string into a complex number
 * @param {string} input - The string to convert to a complex number
+I couldn't figure out how to include these in the class :(
 */
-function parseComplex(input) {
+export function parseComplex(input) {
     const tokens = [];
 
     for(let i = 0; i < input.length; i++) {
@@ -85,7 +86,7 @@ function parseComplex(input) {
     return new Complex(tokens[0], tokens[1])
 }
 
-function toComplex(num) {
+export function toComplex(num) {
     if (num instanceof Complex) {
         return num;
     } else if (typeof num === "string") {
