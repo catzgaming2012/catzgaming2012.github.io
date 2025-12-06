@@ -1,16 +1,14 @@
 {
   "type": "module",
-
   "dependencies": {
     "bigdecimal.js": "^1.3.1"
   },
-  
   "scripts": {
     "clean": "rm -rf dist",
-    "1html": "cp docs/index.html dist/index.html",
-    "1css": "cp docs/style.css dist/style.css",
-    "2html": "cp docs/host/index.html dist/host/index.html",
-    "2js": "cp docs/host/lookForFiles.js dist/host/lookForFiles.js",
-    "build": "npm run clean && mkdir -p dist/host && npm run 1html && npm run 1css && npm run 2html && npm run 2js"
+    "copy": "shx cp -r docs/* dist",
+    "build": "npm run clean && mkdir -p dist/host && npm run copy"
+  },
+  "devDependencies": {
+    "shx": "^0.4.0"
   }
 }
