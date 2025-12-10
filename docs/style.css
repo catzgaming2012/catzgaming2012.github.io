@@ -16,8 +16,8 @@ ul {
   color: white;
 }
 body{
-  background-image: url('host/images/ThatOneBFDIASkyBackground.webp');
+  background-image: url('host/images/ThatOtherBFDIASkyBackground.png');
   background-repeat: repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
