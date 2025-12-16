@@ -58,7 +58,7 @@ export default class Complex {
         return this;
     }
 
-    stringify() {
+    toString() {
         if (this.real === 0) {
             if (this.imag === 0) {
                 return '0';
