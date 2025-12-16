@@ -1,11 +1,22 @@
-(function(Scratch) {
+(async function(Scratch) {
   'use strict';
+
+  const libSite = "https://catzgaming2012.github.io/host/js/Complex.js"
+  if (await Scratch.canFetch(libSite)) {
+    try {
+        const lib = await import(libSite);
+        var Complex = lib.default || lib.Complex;
+  } catch (e) {
+        throw new Error(`Failed to load Complex: ${e.message}`);
+    }
+  } else {
+    throw new Error('Extension could not fetch Complex.js lib. Most likely due to user request or connection.');
+  }
 
   if (!Scratch.extensions.unsandboxed) {
     throw new Error('Extension must run unsandboxed');
   }
-
-  const Complex = require("../js/Complex.js");
+  
 /*
   const menuIconURI = ""
 */

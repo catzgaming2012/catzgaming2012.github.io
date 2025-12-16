@@ -1,8 +1,32 @@
 export default class Complex {
-    constructor(real, imag) {
-        this.real = real;
-        this.imag = imag;
+    constructor(a, b) {
+        switch (typeof a) {
+            case "number":
+                this.real = a;
+                this.imag = (typeof b === "number") ? b : 0;
+                break;
+            case "object":
+                if (a instanceof Complex) {
+                    this.real = a.real;
+                    this.imag = a.imag;
+                } else {
+                    throw new Error('Invalid object');
+                }
+                break;
+            case "string":
+                this.real = Complex.parseComplex(a).real;
+                this.imag = Complex.parseComplex(a).imag;
+                break;
+            default: throw new Error('Invalid input');
+        }
     }
+    static validNumberChar(char) {
+        return /\d/.test(char) // digit
+        || char === 'i' || char === '.' // imaginary unit or decimal point
+        || char === 'e' || char === 'E' // exponent
+        || char === '+' || char === '-'; // exp sign
+    }
+
 
     add(b) {
         const that = Complex.toComplex(b);
@@ -76,29 +100,69 @@ export default class Complex {
     }
 
     static parseComplex(input) {
-        const tokens = [];
-
-        for(let i = 0; i < input.length; i++) {
-            let char = input[i]
-            
-            if (/\d/.test(char)) {
-                let value = '';
-                while (/\d/.test(char) && i < input.length) {
-                    value += char;
-                    char = input[++i];
-                }
-                tokens.push(Number(value));
-                continue;
-            }
+        if (typeof input !== 'string') {
+            throw new Error('Input must be a string');
         }
-        return new Complex(tokens[0], tokens[1])
+
+        const str = input.replace(/\s+/g, '');
+
+        if (str.length === 0) {
+            throw new Error('Empty string');
+        }
+
+        // Pure imaginary
+        if (str === 'i' || s === '+i') {
+            return new Complex(0, 1);
+        }
+        if (str === '-i') {
+            return new Complex(0, -1);
+        }
+
+        // If it contains 'i', but isn't pure imaginary
+        if (str.includes('i')) {
+            // remove the trailing 'i'
+            const txt = str.replace(/i/g, '');
+
+            let idx = -1;
+            for (let i = txt.length - 1; i > 0; i--) {
+                if (txt[i] === '+' || txt[i] === '-') {
+                    idx = i;
+                    break;
+                }
+            }
+
+            let realPart, imagPart;
+            if (idx === -1) {
+                realPart = '0';
+                imagPart = t;
+            } else {
+                realPart = t.slice(0, idx);
+                imagPart = t.slice(idx);
+            }
+
+            const real = realPart === '' ? 0 : Number(realPart);
+            let imag = imagPart === '' ? 1 : Number(imagPart);
+
+            if (Number.isNaN(real) || Number.isNaN(imag)) {
+                throw new Error(`Could not parse number from '${input}'`);
+            }
+
+            return new Complex(real, imag);
+        }
+
+        // pure real
+        const real = Number(s);
+        if (Number.isNaN(real)) {
+            throw new Error(`Could not parse complex number from '${input}'`);
+        }
+        return new Complex(real, 0);
     }
     static toComplex(num) {
         if (num instanceof Complex) {
             return num;
         } else if (typeof num === "string") {
             try {
-                parseComplex(num)
+                return Complex.parseComplex(num)
             } catch (error) {
                 return new Complex(Number(num), 0);
             }
@@ -107,3 +171,7 @@ export default class Complex {
         }
     }
 }
+console.clear();
+const a = '-3 - 4i'
+console.log(typeof a);
+console.log(Complex.parseComplex(a));
