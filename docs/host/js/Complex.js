@@ -171,7 +171,3 @@ export default class Complex {
         }
     }
 }
-console.clear();
-const a = '-3 - 4i'
-console.log(typeof a);
-console.log(Complex.parseComplex(a));
