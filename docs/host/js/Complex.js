@@ -20,12 +20,6 @@ export default class Complex {
             default: throw new Error('Invalid input');
         }
     }
-    static validNumberChar(char) {
-        return /\d/.test(char) // digit
-        || char === 'i' || char === '.' // imaginary unit or decimal point
-        || char === 'e' || char === 'E' // exponent
-        || char === '+' || char === '-'; // exp sign
-    }
 
 
     add(b) {
@@ -111,7 +105,7 @@ export default class Complex {
         }
 
         // Pure imaginary
-        if (str === 'i' || s === '+i') {
+        if (str === 'i' || str === '+i') {
             return new Complex(0, 1);
         }
         if (str === '-i') {
