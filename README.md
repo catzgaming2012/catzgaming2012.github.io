@@ -1,2 +1,1 @@
-# catzgaming.github.io
-Website Repo for the THIRD TIME
+This is just a random website I decided to make one day lol

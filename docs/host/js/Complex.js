@@ -17,52 +17,65 @@ export default class Complex {
                 this.real = Complex.parseComplex(a).real;
                 this.imag = Complex.parseComplex(a).imag;
                 break;
-            default: throw new Error('Invalid input');
+            default:
+                try {
+                    this.real = Number(a);
+                    this.imag = Number(b);
+                } catch (error) {
+                    
+                }
         }
     }
-
+    
+    clone() {
+        return new Complex(this.real, this.imag);
+    }
 
     add(b) {
         const that = Complex.toComplex(b);
+        const me = this.clone();
 
-        this.real += that.real;
-        this.imag += that.imag;
-        return this;
+        me.real += that.real;
+        me.imag += that.imag;
+        return me;
     }
     subtract(b) {
         const that = Complex.toComplex(b);
+        const me = this.clone();
 
-        this.real -= that.real;
-        this.imag -= that.imag;
-        return this;
+        me.real -= that.real;
+        me.imag -= that.imag;
+        return me;
     }
     multiply(b) {
         const that = Complex.toComplex(b);
+        const me = this.clone();
 
-        const A = (this.real * that.real) - (this.imag * that.imag);
-        const B = (this.real * that.imag) + (this.imag * that.real);
+        const A = (me.real * that.real) - (me.imag * that.imag);
+        const B = (me.real * that.imag) + (me.imag * that.real);
 
-        this.real = A;
-        this.imag = B;
+        me.real = A;
+        me.imag = B;
 
-        return this;
+        return me;
     }
     divide(b) {
         const that = Complex.toComplex(b);
+        const me = this.clone();
 
         const denominator = (that.real * that.real) + (that.imag * that.imag);
 
-        const numeratorA = (this.real * that.real) + (this.imag * that.imag);
-        const numeratorB = (this.imag * that.real) - (this.real * that.imag);
+        const numeratorA = (me.real * that.real) + (me.imag * that.imag);
+        const numeratorB = (me.imag * that.real) - (me.real * that.imag);
 
         if (denominator == 0) {
             throw new Error('Cannot divide by zero')
         }
 
-        this.real = numeratorA / denominator
-        this.imag = numeratorB / denominator
+        me.real = numeratorA / denominator
+        me.imag = numeratorB / denominator
 
-        return this;
+        return me;
     }
 
     /**
@@ -72,8 +85,9 @@ export default class Complex {
         return Math.sqrt((this.real * this.real) + (this.imag * this.imag))
     }
     conj() {
-        this.imag = -this.imag;
-        return this;
+        const me = this.clone();
+        me.imag = -me.imag;
+        return me;
     }
 
     toString() {
@@ -101,7 +115,7 @@ export default class Complex {
         const str = input.replace(/\s+/g, '');
 
         if (str.length === 0) {
-            throw new Error('Empty string');
+            return new Complex(0)
         }
 
         // Pure imaginary
@@ -136,19 +150,21 @@ export default class Complex {
 
             const real = realPart === '' ? 0 : Number(realPart);
             let imag = imagPart === '' ? 1 : Number(imagPart);
-
+            /*
             if (Number.isNaN(real) || Number.isNaN(imag)) {
                 throw new Error(`Could not parse number from '${input}'`);
             }
-
+            */
             return new Complex(real, imag);
         }
 
         // pure real
         const real = Number(s);
+        /*
         if (Number.isNaN(real)) {
             throw new Error(`Could not parse complex number from '${input}'`);
         }
+        */
         return new Complex(real, 0);
     }
     static toComplex(num) {
@@ -164,4 +180,8 @@ export default class Complex {
             return new Complex(Number(num), 0);
         }
     }
+
+    i = new Complex("i");
 }
+
+console.log(Complex.i);
