@@ -5,9 +5,5 @@
       "destination": "/docs/404.html",
       "has": [{ "type": "host", "value": "https://katz-withak.vercel.app" }]
     }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "status": 404, "dest": "/docs/404.html" }
   ]
 }
