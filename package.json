@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "copy": "shx cp -r docs/* dist",
-    "build": "npm run clean && mkdir -p dist/host && npm run copy",
+    "build": "npm run clean && mkdir -p dist && npm run copy",
     "dev": "nodemon .dev/app.js"
   },
   "devDependencies": {
