@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
-  <link rel="icon" type="image/png" href="host/images/tabicon.png">
+  <link rel="icon" type="image/png" href="./host/images/tabicon.png">
 </head>
 <body>
     <div class="centered">
-        <h1>404</h1>
-        <p>What were you thinking??</p>
-        <p>remove everything past the 24th character in the url and press enter</p>
-        <a href="catzgaming2012.github.io" class="button">
+        <h1>404</h1><br>
+        <p>What were you thinking??</p><br>
+        <p>remove everything past the first slash character in the url and press enter</p><br>
+        <a id="home" href="" class="button">
             <small>
                 <small>
                     <small>
@@ -21,7 +21,17 @@
                                 <small>
                                     <small>
                                         <small>
-                                            or just click me
+                                            <small>
+                                                <small>
+                                                    <small>
+                                                        <small>
+                                                            <small>
+                                                                or just click me
+                                                            </small>
+                                                        </small>
+                                                    </small>
+                                                </small>
+                                            </small>
                                         </small>
                                     </small>
                                 </small>
@@ -31,6 +41,10 @@
                 </small>
             </small>
         </a>
+        <script>
+            const myLink = document.getElementById("home");
+            myLink.href = window.location.origin;
+        </script>
     </div>
 </body>
 </html>

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const owner = 'catzgaming2012';
     const repo = 'catzgaming2012.github.io';
     const initialPath = 'docs/host'; // The API path to fetch from
-    const baseUrl = `https://${owner}.github.io/`; // The base URL of your website
+    const baseUrl = window.location.origin; // The base URL of your website
 
     // The segment we need to remove from the API path ('docs/')
     // The path on the server is '/host/...'
