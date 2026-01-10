@@ -9,8 +9,7 @@
     "clean": "rm -rf dist",
     "copy": "mkdir -p dist && cp -r docs/. dist",
     "build": "npm run clean && npm run copy",
-    "build-vercel": "cd .. && npm run build",
-    "dev": "nodemon ../.dev/app.js"
+    "dev": "nodemon .dev/app.js"
   },
   "devDependencies": {
     "nodemon": "^3.1.11",
