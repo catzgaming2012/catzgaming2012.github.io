@@ -23,8 +23,18 @@
 			"  opcode: \"$1\",",
 			"  text: \"$2\",",
 			"  blockType: $3,",
-			"}"
+			"},"
 		],
 		"description": "Create a new scratch block"
-	}
+	},
+	"divider": {
+		"scope": "javascript",
+		"prefix": "divide",
+		"body": [
+			"\"---\",", // "---",
+			"bloc$1" // new block (just type "k" and the intellisense will come up)
+		],
+		"description": "Create a divider"
+	},
+
 }
