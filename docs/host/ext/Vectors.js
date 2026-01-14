@@ -162,9 +162,6 @@
 
       return new Vector([x, y])
     }
-    setDimension(D) {
-      
-    }
 
     length() {
       const result = this.vec.reduce((sum, val) => sum + (val * val), 0);
@@ -208,7 +205,6 @@
         blocks: [
           {
             opcode: "info",
-            callFunc: this.info(),
             text: "Info",
             blockType: BUTTON
           },
@@ -278,6 +274,12 @@
             opcode: "rot3D",
             text: "rotate (3D) [V] [deg] degrees on the [XYZ] axis",
             arguments: { V: Vec.arg, deg: { type: NUMBER }, XYZ: { type: STRING, menu: "xyz" } },
+            ...Vec.reporter
+          },
+          {
+            opcode: "project3Dto2D",
+            text: "project 3D [V] with focal length [FOCAL] to 2D",
+            arguments: { V: Vec.arg, FOCAL: { type: NUMBER } },
             ...Vec.reporter
           },
           "---",
@@ -490,6 +492,14 @@ PenguimMod is recommended
       const angle = Cast.toNumber(deg);
 
       return V.rotate3D(angle, XYZ);
+    }
+
+    project3Dto2D({V,FOCAL}) {
+      if (!(V instanceof Vector)) {
+        return new Vector([0,0]);
+      }
+      const focal = Cast.toNumber(FOCAL);
+      return V.project3Dto2D(focal);
     }
 
     length({V}) {
